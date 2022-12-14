@@ -15,8 +15,26 @@ pip install flask & pip install pyserial
 
 Usage:
 
-> download, unzip somewhere, cd to */simu
+> download, unzip to somewhere, cd to the simu folder
+> ```shell
+> python main.pyw [-s --serial default: first COM available]
+> [-t --timeout default:0.15] 
+> [-b --baudrate default:115200]
+> [-x --xonxoff default: 0]
+> [-r --rtscts default: 0]
+> [-d --dsrdtr default: 0]
+> [-v --visual default: 0]
+> ```
 
+> or make a bat file if you don't like console but stil need a HTML UI:
+> ```bat
+> start pythonw main.pyw [-s --serial default: first COM available]
+> [-t --timeout default:0.15] 
+> [-b --baudrate default:115200]
+> [-x --xonxoff default: 0]
+> [-r --rtscts default: 0]
+> [-d --dsrdtr default: 0]
+> ```
 No GUI and module version see this [simu](https://github.com/DAF201/virtual_simulator)
 
 (github really should count js in HTML also rather than count whole thing as html)
