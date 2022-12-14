@@ -13,6 +13,10 @@ packages shortcut:
 pip install flask & pip install pyserial
 ```
 
+Usage:
+
+> download, unzip somewhere, cd to */simu
+
 No GUI and module version see this [simu](https://github.com/DAF201/virtual_simulator)
 
 (github really should count js in HTML also rather than count whole thing as html)
