@@ -7,7 +7,7 @@ Requirements:
 (install_requires=['pyserial>=3.5','Flask>=2.2.2'], python_requires=">=3.9")
 ```
 
-shortcut
+packages shortcut
 
 ```shell
 pip install flask & pip install pyserial
