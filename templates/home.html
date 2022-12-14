@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<style>
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    a {
+        display: block;
+        color: rgb(200, 200, 200);
+    }
+
+    div {
+        display: block;
+    }
+
+    body {
+        background-color: rgb(12, 12, 12);
+    }
+
+    textarea {
+        border-radius: 10px;
+        background-color: rgb(75, 75, 75);
+        /* opacity: 0.8; */
+        resize: none;
+        color: white;
+    }
+
+    input {
+        background-color: rgb(75, 75, 75);
+        border-radius: 10px;
+    }
+
+    .disable-select {
+        user-select: none;
+        /* supported by Chrome and Opera */
+        -webkit-user-select: none;
+        /* Safari */
+        -khtml-user-select: none;
+        /* Konqueror HTML */
+        -moz-user-select: none;
+        /* Firefox */
+        -ms-user-select: none;
+        /* Internet Explorer/Edge */
+    }
+
+    .info_display {
+        margin-left: 1vw;
+        margin-right: 1vw;
+        background-color: rgb(25, 25, 25);
+    }
+
+    .flyer {
+        width: auto;
+        margin-top: 10vh;
+        padding-left: 2vw;
+        max-width: 15%;
+        position: fixed;
+        float: left;
+    }
+
+    .flyer.flyer_left {
+        margin-left: 0%;
+    }
+
+    .flyer.flyer_right {
+        margin-left: 75%;
+        min-width: 10vw;
+    }
+
+    .main {
+        position: relative;
+        margin-left: 40vw;
+        float: left;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        display: none;
+        overflow-y: scroll;
+    }
+
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 0px grey;
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: gray;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: darkgray;
+    }
+
+    .scrollable {
+        height: 60vh;
+        overflow-y: auto;
+        scrollbar-color: gray;
+        text-align: left;
+    }
+
+    .border {
+        border-radius: 5%;
+    }
+
+    .register {
+        display: block;
+    }
+
+    label {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 20px;
+        background-color: rgb(19, 206, 102);
+        border-color: rgb(19, 206, 102);
+        border-radius: 10px;
+    }
+
+
+    label::before {
+        content: " ";
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        position: absolute;
+        right: 22px;
+        top: 2px;
+        background-color: #fff;
+        transition: all 0.4s ease;
+        cursor: pointer;
+    }
+
+    input {
+        display: none;
+        color: white;
+    }
+
+    input:checked+label {
+        background-color: darkgray;
+        border-color: darkgray;
+    }
+
+    input:checked+label::before {
+        right: 2px;
+    }
+
+    .tab {
+        tab-size: 4;
+    }
+
+    .dont_touch_me {
+        display: none;
+        position: absolute;
+        z-index: 2;
+    }
+</style>
+
+<head>
+    <title>Control Panel</title>
+    <link rel="icon" type="image/x-icon"
+        href="https://raw.githubusercontent.com/DAF201/DAF201/main/07F3D8AF-FB24-4BB1-BB33-2665DAD393FD.ico">
+</head>
+
+<body onload="reload_data()">
+    <p class="disable-select" style="font-size: xx-small;">don't touch me</p>
+    <audio class="disable-select" id="dtma">
+        <source src="https://raw.githubusercontent.com/DAF201/DAF201/main/dont_touch_me.mp3">
+    </audio>
+    <img class="disable-select" onclick="dont_touch_me()"
+        src="https://raw.githubusercontent.com/DAF201/DAF201/main/dont_touch_me.png" style="float: left; width: 60px;">
+    <img id="dtm" class="dont_touch_me disable-select"
+        src="https://raw.githubusercontent.com/DAF201/DAF201/main/dont_touch_me.gif"
+        style="width: 100vw;height: 100vh;">
+    <fieldset id="main_body" style="border: none;">
+        <div style="height: 100vh;">
+            <div class="main">
+                <h1 class="disable-select" style="text-align: center;font-size: xxx-large;font-weight: bold;">Control
+                    Panel</h1>
+                <h1 class="disable-select">Integer Register: </h1>
+
+                <p class="tab disable-select"><b>Start register</b>&emsp;&nbsp;<b>End register</b></p>
+
+                <input type="number" name="current_register_address_start" id="current_register_address_start"
+                    value=40000 min=40000 style="display: block;width: 100px;height: 20px;float: left;">
+                <input type="number" name="current_register_address_end" id="current_register_address_end" value=40000
+                    max=40200 style="display: block;width: 100px;height: 20px;">
+
+                <p class="disable-select"><b>HEX:</b></p>
+                <input type="text" name="current_register_hex" id="current_register_hex" value=0000
+                    style="display: block;width: 200px;height: 20px;">
+                <p class="disable-select"><b>DEC:</b></p>
+                <input type="text" name="current_register_dec" id="current_register_dec" value=00000000
+                    style="display: block;width: 200px;height: 20px;">
+                <p class="disable-select"><b>OCT:</b></p>
+                <input type="text" name="current_register_oct" id="current_register_oct" value=00000000
+                    style="display: block;width: 200px;height: 20px;">
+                <p class="disable-select"><b>BIN:</b></p>
+                <input type="text" name="current_register_bin" id="current_register_bin" value=0000000000000000
+                    style="display: block;width: 200px;height: 20px;">
+                <br>
+                <button class="disable-select" onclick="post_register_data()"
+                    style="opacity: 0.7; background-color: white;border-radius: 15px;height: 30px;width: 210px;">Start
+                    Testing</button>
+
+                <div>
+                    <h1 class="disable-select">String writer</h1>
+
+                    <p class="disable-select"><b>Regitser</b></p>
+                    <input type="number" id="string_writer_register" value=40000 style="display: block;">
+
+                    <p class="disable-select"><b>String</b></p>
+                    <textarea name="string_writer_value" id="string_writer_value" cols="25" rows="5"
+                        placeholder="Enter string here"></textarea>
+                    <br>
+                    <button class="disable-select" onclick="write_string()"
+                        style="opacity: 0.7; background-color: white;border-radius: 15px;height: 30px;width: 210px;">Write
+                        String</button>
+                </div>
+                <br>
+                <button class="disable-select" onclick="__exit()"
+                    style="opacity: 0.7; background-color: white;border-radius: 15px;height: 30px;width: 210px;">Exit
+                    Testing</button>
+            </div>
+
+            <div class="flyer flyer_left disable-select">
+                <h2 class="disable-select" onclick="display_toggle('registers');display_toggle('register_search')"
+                    style="text-align: center;">
+                    registers
+                </h2>
+
+                <input id="register_search" type="number" onkeyup="register_search('registers',this.value)"
+                    style="padding-left:8%;margin-left: 8%;width: auto;display: block;">
+
+                <p style="display:block;color:rgb(12,12,12);margin-top: 0;margin-bottom: 0;">place holder</p>
+
+                <div id="registers" class="scrollable info_display border">
+                    <div id="register_info"></div>
+                </div>
+            </div>
+
+            <div class="flyer flyer_right disable-select">
+                <h2 class="disable-select" style="margin-left: 1vw;">faults</h2>
+                <input type="number" value=40000 id="fault_register"
+                    style="width: 7vw; margin-left: 1vw; display: block;">
+                <br>
+                <div class="scrollable info_display border">
+                    <div class="scrollable info_display border">
+                        <div id="faults_test_display">
+                            <input type="checkbox" id="fault_01" checked>
+                            <label for="fault_01" style="float: right;"></label>
+                            <p class="disable-select">Fault 01</p>
+                            <input type="checkbox" id="fault_02" checked>
+                            <label for="fault_02" style="float: right;"></label>
+                            <p class="disable-select">Fault 02</p>
+                            <input type="checkbox" id="fault_03" checked>
+                            <label for="fault_03" style="float: right;"></label>
+                            <p class="disable-select">Fault 03</p>
+                            <input type="checkbox" id="fault_04" checked>
+                            <label for="fault_04" style="float: right;"></label>
+                            <p class="disable-select">Fault 04</p>
+                            <input type="checkbox" id="fault_05" checked>
+                            <label for="fault_05" style="float: right;"></label>
+                            <p class="disable-select">Fault 05</p>
+                            <input type="checkbox" id="fault_06" checked>
+                            <label for="fault_06" style="float: right;"></label>
+                            <p class="disable-select">Fault 06</p>
+                            <input type="checkbox" id="fault_07" checked>
+                            <label for="fault_07" style="float: right;"></label>
+                            <p class="disable-select">Fault 07</p>
+                            <input type="checkbox" id="fault_08" checked>
+                            <label for="fault_08" style="float: right;"></label>
+                            <p class="disable-select">Fault 08</p>
+                            <input type="checkbox" id="fault_09" checked>
+                            <label for="fault_09" style="float: right;"></label>
+                            <p class="disable-select">Fault 09</p>
+                            <input type="checkbox" id="fault_10" checked>
+                            <label for="fault_10" style="float: right;"></label>
+                            <p class="disable-select">Fault 10</p>
+                            <input type="checkbox" id="fault_11" checked>
+                            <label for="fault_11" style="float: right;"></label>
+                            <p class="disable-select">Fault 11</p>
+                            <input type="checkbox" id="fault_12" checked>
+                            <label for="fault_12" style="float: right;"></label>
+                            <p class="disable-select">Fault 12</p>
+                            <input type="checkbox" id="fault_13" checked>
+                            <label for="fault_13" style="float: right;"></label>
+                            <p class="disable-select">Fault 13</p>
+                            <input type="checkbox" id="fault_14" checked>
+                            <label for="fault_14" style="float: right;"></label>
+                            <p class="disable-select">Fault 14</p>
+                            <input type="checkbox" id="fault_15" checked>
+                            <label for="fault_15" style="float: right;"></label>
+                            <p class="disable-select">Fault 15</p>
+                            <input type="checkbox" id="fault_16" checked>
+                            <label for="fault_16" style="float: right;"></label>
+                            <p class="disable-select">Fault 16</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="disable-select" type="submit" onclick="send_faults()"
+                    style="width: 8vw; margin-left: 1vw;opacity:0.7;border-radius: 30px;background-color:white;">send
+                    faults</button>
+            </div>
+        </div>
+    </fieldset>
+</body>
+<script>
+    function __exit() {
+        let exit_request = new XMLHttpRequest()
+        exit_request.open("POST", "/exit")
+        exit_request.send()
+        setTimeout("window.close()", 500)
+    }
+</script>
+<script>
+    var hex_input_box = document.getElementById("current_register_hex")
+    var dec_input_box = document.getElementById("current_register_dec")
+    var oct_input_box = document.getElementById("current_register_oct")
+    var bin_input_box = document.getElementById("current_register_bin")
+
+    hex_input_box.name = "1"
+    dec_input_box.name = "2"
+    oct_input_box.name = "3"
+    bin_input_box.name = "4"
+
+    hex_input_box.addEventListener("keyup", int_values_convert)
+    dec_input_box.addEventListener("keyup", int_values_convert)
+    oct_input_box.addEventListener("keyup", int_values_convert)
+    bin_input_box.addEventListener("keyup", int_values_convert)
+
+    function int_values_convert(evt) {
+        try {
+            switch (evt.currentTarget.name) {
+                case "1": {
+                    let data = document.getElementById("current_register_hex").value
+                    document.getElementById("current_register_dec").value = parseInt(data, 16).toString().padStart(8, 0)
+                    document.getElementById("current_register_oct").value = parseInt(data, 16).toString(8).padStart(8, 0)
+                    document.getElementById("current_register_bin").value = parseInt(data, 16).toString(2).padStart(16, 0)
+                    break
+                }
+                case "2": {
+                    let data = document.getElementById("current_register_dec").value
+                    document.getElementById("current_register_hex").value = parseInt(data, 10).toString(16).padStart(4, 0)
+                    document.getElementById("current_register_oct").value = parseInt(data, 10).toString(8).padStart(8, 0)
+                    document.getElementById("current_register_bin").value = parseInt(data, 10).toString(2).padStart(16, 0)
+                    break
+                }
+                case "3": {
+                    let data = document.getElementById("current_register_oct").value || 0
+                    document.getElementById("current_register_hex").value = parseInt(data, 8).toString(16).padStart(4, 0)
+                    document.getElementById("current_register_dec").value = parseInt(data, 8).toString(10).padStart(8, 0)
+                    document.getElementById("current_register_bin").value = parseInt(data, 8).toString(2).padStart(16, 0)
+                    break
+                }
+                case "4": {
+                    let data = document.getElementById("current_register_bin").value || 0
+                    document.getElementById("current_register_hex").value = parseInt(data, 2).toString(16).padStart(4, 0)
+                    document.getElementById("current_register_dec").value = parseInt(data, 2).toString(10).padStart(8, 0)
+                    document.getElementById("current_register_oct").value = parseInt(data, 2).toString(8).padStart(8, 0)
+                    break
+                }
+            }
+        } catch (err) {
+            console.log(err)
+        }
+
+    }
+
+    function display_register_value(register_address) {
+        document.getElementById("current_register_address_start").value = register_address
+        document.getElementById("current_register_address_end").value = register_address
+        document.getElementById("string_writer_register").value = register_address
+        document.getElementById("fault_register").value = register_address
+        document.getElementById("current_register_hex").value = register_data_backup[register_address].padStart(4, "0")
+        document.getElementById("current_register_dec").value = parseInt(register_data_backup[register_address], 16).toString().padStart(8, 0)
+        document.getElementById("current_register_oct").value = parseInt(register_data_backup[register_address], 16).toString(8).padStart(8, 0)
+        document.getElementById("current_register_bin").value = parseInt(register_data_backup[register_address], 16).toString(2).padStart(16, 0)
+
+        let register_value = document.getElementById("current_register_bin").value.padStart(16, 0)
+
+        for (let i = 1; i < 17; i++) {
+            console.log(document.getElementById("fault_" + i.toString().padStart(2, "0")).checked = !parseInt(register_value[i - 1]))
+        }
+    }
+
+    function display_toggle(element) {
+        element = document.getElementById(element)
+        if (window.getComputedStyle(element).display == "block") {
+            element.style.display = "none"
+        } else {
+            element.style.display = "block"
+        }
+    }
+
+    var register_search_box = document.getElementById("register_search");
+    register_search_box.addEventListener("keydown", function (event) {
+        const key = event.key;
+        if (key === "Backspace" || key === "Delete") {
+            register_search("registers", document.getElementById("register_search").value)
+        }
+    });
+
+    function register_search(this_div, register_address) {
+        try {
+            let elements = document.getElementById(this_div).querySelectorAll(".register")
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].style.display = "block"
+            }
+            for (let i = 0; i < elements.length; i++) {
+                if (!elements[i].id.includes(register_address)) {
+                    elements[i].style.display = "none"
+                }
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    }
+</script>
+
+<script>
+    function send_faults() {
+        faults = {}
+        for (var i = 1; i < 17; i++) {
+            faults[i] = !document.getElementById("fault_" + i.toString().padStart(2, "0")).checked
+        }
+        faults["register"] = document.getElementById("fault_register").value
+        document.getElementById("fault_register").value = 40000
+        console.log(faults)
+        request("POST", "/fault_test", JSON.stringify(faults), reload_data, [])
+    }
+
+    function post_register_data() {
+        let register_data = {}
+
+        let crgsts = document.getElementById("current_register_address_start").value
+        let crgste = document.getElementById("current_register_address_end").value
+
+        if (crgsts < 40000) {
+            crgsts = 40000
+        }
+        if (crgste > 40500) {
+            crgste = 40500
+        }
+
+        register_data["register_start"] = crgsts
+        register_data["register_end"] = crgste
+        register_data["register_value"] = document.getElementById("current_register_hex").value
+
+        document.getElementById("register_search").value = ""
+
+        request("POST", "/update_data", JSON.stringify(register_data), reload_data, [])
+    }
+
+    function write_string() {
+        let string_writer_register = document.getElementById("string_writer_register")
+        let string_writer_value = document.getElementById("string_writer_value")
+        let register_data = {}
+        register_data["register_start"] = string_writer_register.value
+        register_data["register_value"] = string_writer_value.value
+        string_writer_register.value = 40000
+        string_writer_value.value = ""
+        document.getElementById("register_search").value = ""
+        request("POST", "/write_string", JSON.stringify(register_data), reload_data, [])
+    }
+
+    function reload_data() {
+        request("GET", "/get_register_data", "", data_update, ["register_info"])
+    }
+</script>
+
+<script>
+    var data_backup = []
+    register_data_backup = {}
+
+    function request(mathod, target, param, callback = function () { }, callback_args = []) {
+        let http_request = new XMLHttpRequest()
+        try {
+            http_request.open(mathod, target)
+            http_request.send(param)
+            http_request.onreadystatechange = function () {
+                data_backup = http_request.responseText
+                callback(http_request.responseText, callback_args)
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    }
+</script>
+
+<script>
+    function data_update(data, path) {
+        try {
+
+            data = data.split(",")
+
+            for (let i = 0; i < data.length; i++) {
+                let data_chunk = data[i].replaceAll("'", "").replaceAll(" ", "")
+                data_chunk = data_chunk.split(":")
+                register_data_backup[data_chunk[0]] = data_chunk[1]
+            }
+
+            let elements = document.getElementById(path).querySelectorAll(".register")
+
+            for (let i = 0; i < elements.length; i++) {
+                document.getElementById(path).removeChild(elements[i])
+            }
+
+            for (let i = 0; i < data.length; i++) {
+                if (data[i] == "") {
+                    continue
+                }
+
+                let data_chunk = data[i].replaceAll("\'", "").split(":")
+                let register_address = data_chunk[0]
+                let hex_data = data_chunk[1]
+                let insert_text = "<p onclick='display_register_value(" + register_address + ")' class='register' id=\'" + register_address + "\'" + " style='float: left' class='info_display'> reg:<br> " + register_address + '<br>------------------------<br>' + "hex:<br>" + hex_data + "<br>dec:<br> " + parseInt(hex_data, 16).toString().padStart(5, 0) + "<br>oct:<br> " + parseInt(hex_data, 16).toString(8).padStart(7, 0) + "<br>bin:<br>" + parseInt(hex_data, 16).toString(2).padStart(16, 0) + "</p>"
+
+                document.getElementById(path).insertAdjacentHTML("beforeend", insert_text)
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    }
+</script>
+
+<script>
+    async function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function dont_touch_me() {
+        let exit_request = new XMLHttpRequest()
+        exit_request.open("POST", "/exit")
+        exit_request.send()
+        document.getElementById("dtma").play()
+        document.getElementById("dtm").style.display = "block"
+        document.getElementById("main_body").disabled = true
+        await sleep(3100)
+        window.close()
+    }
+</script>
