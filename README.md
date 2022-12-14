@@ -10,7 +10,7 @@ Requirements:
 shortcut
 
 ```shell
-pip install flask -y & pip install pyserial -y
+pip install flask & pip install pyserial
 ```
 
 No GUI and module version see this [simu](https://github.com/DAF201/virtual_simulator)
