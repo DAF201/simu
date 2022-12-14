@@ -35,7 +35,7 @@ Usage:
 > [-r --rtscts default: 0]
 > [-d --dsrdtr default: 0]
 > ```
-No GUI and module version see this [simu](https://github.com/DAF201/virtual_simulator)
+No GUI and oneline ready to use version see this: [virtual_simulator](https://github.com/DAF201/virtual_simulator)
 
 (github really should count js in HTML also rather than count whole thing as html)
 
