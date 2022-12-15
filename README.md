@@ -1,5 +1,5 @@
 # simu
-modbus simulator with GUI
+modbus simulator with GUI (Made with HTML, the only GUI took I know how to use)
 
 Requirements:
 
@@ -26,7 +26,7 @@ Usage:
 > [-v --visual default: 0]
 > ```
 
-> or make a bat file if you don't like console but stil need a HTML UI:
+> or make a bat file if you don't like console but stil need a HTML UI (@SomeTesters in your company who don't know computer. Yes, there are quite a lot of them in where I am currently working.):
 > ```bat
 > start pythonw main.pyw [-s --serial default: first COM available]
 > [-t --timeout default:0.15] 
