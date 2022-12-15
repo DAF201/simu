@@ -60,3 +60,7 @@ To close the program, just unplug the serial port tool from your PC's USB port o
 <img src='https://github.com/DAF201/simu/blob/main/images/Screenshot%20(144).png'>
 
 <img src='https://github.com/DAF201/simu/blob/main/images/B9E3300F-D894-4E76-B257-D8949BBBC91D.jpg'>
+
+<img src='https://github.com/DAF201/simu/blob/main/images/Screenshot%20(147).png'>
+
+<img src='https://github.com/DAF201/simu/blob/main/images/61E45682-4AF9-4503-B197-2DED6C8FD722.jpg'>
