@@ -41,7 +41,7 @@ No GUI and oneline ready to use version see this: [virtual_simulator](https://gi
 
 # for who don't know computer Tutor:
 
-## ask your programmer friend install Python, pip, git first before use
+## ask company's programming guy to help with installing Python, pip, git and required packages first before use
 
 Extract(winrar or whatever you like), go to the folder. Right click on simu.bat(no console) or simuv.bat(with console), send to desktop
 
