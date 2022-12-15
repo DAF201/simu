@@ -49,7 +49,7 @@ Extract the zip file, go to the simu folder. Right click on simu.bat(no console)
 
 <img src='https://github.com/DAF201/simu/blob/main/images/Screenshot%20(142).png'>
 
-Double click on the shortcut on desktop, done (the broswer will pop out automatically after a short period, if not, try enter https://127.0.0.1:80)
+Double click on the shortcut on desktop, done (the browser will pop out automatically after a short period, if not, try enter https://127.0.0.1:80)
 
 <img src='https://github.com/DAF201/simu/blob/main/images/Screenshot%20(145).png'>
 
