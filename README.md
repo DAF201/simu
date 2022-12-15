@@ -51,4 +51,10 @@ Double click on the shortcut on desktop, done
 
 <img src='https://github.com/DAF201/simu/blob/main/images/Screenshot%20(145).png'>
 
+To close the program, just unplug the serial port tool from your PC's USB port or go to the GUI click on exit testing button on the bottom of the page
+
+# GUI guide book
+
 <img src='https://github.com/DAF201/simu/blob/main/images/Screenshot%20(144).png'>
+
+<img src='https://github.com/DAF201/simu/blob/main/images/B9E3300F-D894-4E76-B257-D8949BBBC91D.jpg'>
