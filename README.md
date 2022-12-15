@@ -43,7 +43,7 @@ No GUI and oneline ready to use version see this: [virtual_simulator](https://gi
 
 ## ask company's programming guy to help with installing Python, pip and required packages first before use
 
-Extract(winrar or whatever you like), go to the folder. Right click on simu.bat(no console) or simuv.bat(with console), send to desktop. 
+Extract the zip file, go to the simu folder. Right click on simu.bat(no console) or simuv.bat(with console), send to desktop. 
 
 > ask the programming guy to help with add config such as baudrate things in bat file if needed
 
