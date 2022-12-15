@@ -26,7 +26,7 @@ Usage:
 > [-v --visual default: 0]
 > ```
 
-> or make a bat file if you don't like console but stil need a HTML UI (@SomeTesters in your company who don't know computer. Yes, there are quite a lot of them in where I am currently working.):
+> or make a bat file if you don't like console but stil need a HTML UI (@SomeTesters in your company who don't know computer.):
 > ```bat
 > start pythonw main.pyw [-s --serial default: first COM available]
 > [-t --timeout default:0.15] 
@@ -39,7 +39,7 @@ No GUI and oneline ready to use version see this: [virtual_simulator](https://gi
 
 (github really should count js in HTML also rather than count whole thing as html)
 
-# for who don't know computer Tutor:
+# for testers who don't know computer:
 
 ## ask company's programming guy to help with installing Python, pip and required packages first before use
 
