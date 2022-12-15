@@ -26,7 +26,7 @@ Usage:
 > [-v --visual default: 0]
 > ```
 
-> or make a bat file if you don't like console but stil need a HTML UI (@SomeTesters in your company who don't know computer.):
+> or make a bat file if you don't like console but stil need a HTML UI (@Some_testers in your company who don't know computer.):
 > ```bat
 > start pythonw main.pyw [-s --serial default: first COM available]
 > [-t --timeout default:0.15] 
