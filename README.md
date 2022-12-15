@@ -50,3 +50,5 @@ Extract(winrar or whatever you like), go to the folder. Right click on simu.bat(
 Double click on the shortcut on desktop, done
 
 <img src='https://github.com/DAF201/simu/blob/main/images/Screenshot%20(145).png'>
+
+<img sec='https://github.com/DAF201/simu/blob/main/images/Screenshot%20(144).png'>
