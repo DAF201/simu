@@ -1,5 +1,5 @@
 # simu
-modbus simulator with GUI (Made with HTML, the only GUI took I know how to use)
+modbus simulator with GUI (Made with HTML, the only GUI took I know how to use. Also you many want to change the db.json if your registers don't start from 40000)
 
 Requirements:
 
