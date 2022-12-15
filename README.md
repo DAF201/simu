@@ -39,3 +39,14 @@ No GUI and oneline ready to use version see this: [virtual_simulator](https://gi
 
 (github really should count js in HTML also rather than count whole thing as html)
 
+# for who don't know computer Tutor:
+
+## ask your programmer friend install Python, pip, git first before use
+
+Extract(winrar or whatever you like), go to the folder. Right click on simu.bat(no console) or simuv.bat(with console), send to desktop
+
+<img src='https://github.com/DAF201/simu/blob/main/images/Screenshot%20(142).png'>
+
+Double click on the shortcut on desktop, done
+
+<img src='https://github.com/DAF201/simu/blob/main/images/Screenshot%20(145).png'>
